@@ -58,6 +58,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         fields = '__all__'
 
+
 class CountrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Country
@@ -78,10 +79,20 @@ class GenreSerializer(serializers.ModelSerializer):
         model = Genre
         fields = '__all__'
 
-class MovieSerializer(serializers.ModelSerializer):
+class MovieListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = '__all__'
+        fields = ['id', 'movie_name', 'movie_image', 'actor',
+                  'year', 'genre', 'country']
+
+class MovieDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Movie
+        fields = ['id', 'movie_name', 'movie_image', 'movie_trailer', 'types', 'director', 'actor',
+                  'year', 'genre', 'country', 'status_movie', 'movie_time', 'description']
+
+
+
 
 class MovieLanguagesSerializer(serializers.ModelSerializer):
     class Meta:
